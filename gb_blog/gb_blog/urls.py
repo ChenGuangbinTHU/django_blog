@@ -17,6 +17,7 @@ from django.conf.urls import url
 from django.contrib import admin
 from article import views
 from article.views import RSSFeed
+from django.conf.urls import include
 # import article
 
 urlpatterns = [

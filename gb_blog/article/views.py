@@ -11,6 +11,8 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger  #æ·»åŠ
 
 import logging
 
+from article.md_forms import MDEditorForm
+
 logger = logging.getLogger("django")
 
 
@@ -44,11 +46,12 @@ def home(request):
 #     return HttpResponse("You're looking at my_args %s." % my_args)
 
 def detail(request, id):
+    form = MDEditorForm
     try:
         post = Article.objects.get(id=str(id))
     except Article.DoesNotExist:
         raise Http404
-    return render(request, 'post.html', {'post' : post})
+    return render(request, 'post.html', {'post' : post, 'form':form})
 
 def test(request) :
     return render(request, 'home.html', {'current_time': datetime.now()})

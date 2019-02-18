@@ -1,6 +1,10 @@
 #post.html
 {% extends "base.html" %}
+{% load blog_tags %}
 {% load custom_markdown %}
+
+
+
 
 {% block content %}
 <div class="posts">
@@ -14,9 +18,11 @@
             </header>
 
                 <div class="post-description">
+
+                    
                     <p>
-                        {{ post.content|custom_markdown }}
-                    </p>
+                            {{ post.content | custom_markdown}}
+                        </p>
                 </div>
         </section>
 </div><!-- /.blog-post -->
